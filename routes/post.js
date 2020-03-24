@@ -22,7 +22,7 @@ router.get('/', async function (req, res, next) {
 router.post('/create-post', async (req, res, next) => {
     const body = req.body;
     try {
-        const customer = await PostService.createPost(body);
+        const post = await PostService.createPost(body);
         // if (body.guid != null) {
         //     customer.guid = body.guid;
         // }
