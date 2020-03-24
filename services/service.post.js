@@ -43,18 +43,7 @@ class PostService {
     static getAllPost() {
 
         return Posts.find({})
-            .exec()
-            .then((posts) => {
 
-                console.log('posts----------------', posts);
-                return posts;
-            })
-            .catch((err) => {
-                console.log('posts-errr---------------', err);
-                return err;
-
-
-            });
     }
 }
 
