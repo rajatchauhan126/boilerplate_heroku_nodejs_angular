@@ -20,8 +20,9 @@ class PostService {
 
     static createPost = (data) => {
         return new Promise((reject, resolve) => {
+            console.log('fhfffffffffffffffffffffffffff',data)
             if (!data.community || !data.title) {
-                reject('All fiels are required');
+                reject({err:'All fiels are required'});
             }
             var posts = new Posts();
 
