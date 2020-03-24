@@ -19,10 +19,10 @@ let passwordPattern = /([a-z])/;
 class PostService {
 
     static createPost = (data) => {
-        return new Promise((reject, resolve) => {
+        return new Promise((resolve, reject) => {
             console.log('fhfffffffffffffffffffffffffff',data)
             if (!data.community || !data.title) {
-                reject({err:'All fiels are required'});
+                reject({message:'All fiels are required'});
             }
             var posts = new Posts();
 
