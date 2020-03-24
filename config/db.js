@@ -1,3 +1,4 @@
+console.log('dburi------------1----------------------');
 var mongoose = require('mongoose');
 var gracefulShutdown;
 // var dbURI = 'mongodb://localhost/guch';
@@ -7,7 +8,6 @@ console.log(typeof(dbURI));
 // if (process.env.NODE_ENV === 'production') {
 //   dbURI = process.env.MONGOLAB_URI;
 // }
-console.log('dburi------------------',typeof(dbURI));
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
 // CONNECTION EVENTS
