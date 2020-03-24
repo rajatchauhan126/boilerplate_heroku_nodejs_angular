@@ -16,6 +16,7 @@ router.post('/create-post', async (req, res, next) => {
         res.status(201).json({ post: post });
     }
     catch (err) {
+        console.log('err-----------------------', err);
         if (err.name === 'ValidationError') {
             return res.status(400).json({ error: err.message });
         }
