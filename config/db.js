@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 // var dbURI = 'mongodb://localhost/guch';
 
-var dbURI = 'mongodb+srv://testuserrajat:testuserrajat%40123@cluster0-kefgc.mongodb.net/test?retryWrites=true&w=majority';
+var dbURI = `mongodb+srv://testuserrajat:testuserrajat%40123@cluster0-kefgc.mongodb.net/test?retryWrites=true&w=majority`;
 
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
