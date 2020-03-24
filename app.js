@@ -24,9 +24,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// app.use(express.static(__dirname + '/frontend/dist/angular-node-express'));
+app.use(express.static(__dirname + '/frontend/dist/angular-node-express'));
 
-// app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
+app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 
 app.use('/api/v1/users', users);
 app.use('/api/v1/customer', customer);
