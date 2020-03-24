@@ -19,6 +19,7 @@ let passwordPattern = /([a-z])/;
 class PostService {
 
     static createPost(data) {
+        console.log('data----------', data)
         if (!data.community || !data.title) {
             throw new Error('All fiels are required');
         }
