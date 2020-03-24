@@ -33,19 +33,31 @@ class PostService {
         }
         posts.postDateTime = new Date();
         console.log('posts----------------', posts);
-        let saveData = posts.save();
-        console.log('savedata----------------', saveData);
-        return saveData;
-    }
-
-    static getAllPost() {
-        return Posts.find({})
-            .exec()
+        let saveData = posts.save()
             .then((posts) => {
                 return posts;
             })
             .catch((err) => {
                 return 'error occured';
+            });
+
+    }
+
+    static getAllPost() {
+
+        console.log('posts------------getallpost----');
+        return Posts.find({})
+            .exec()
+            .then((posts) => {
+
+        console.log('posts----------------', posts);
+                return posts;
+            })
+            .catch((err) => {
+                console.log('posts-errr---------------', err);
+                return err;
+
+
             });
     }
 }
