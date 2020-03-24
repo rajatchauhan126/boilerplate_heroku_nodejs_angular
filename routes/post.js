@@ -13,15 +13,15 @@ router.post('/create-post', async (req, res, next) => {
         res.cookie({ maxAge: 900000, httpOnly: true });
 
         // created the customer! 
-        return res.status(201).json({ post: post });
+        res.status(201).json({ post: post });
     }
     catch (err) {
         if (err.name === 'ValidationError') {
-            return res.status(400).json({ error: err.message });
+            res.status(400).json({ error: err.message });
         }
 
         // unexpected error
-        return next(err);
+        next(err);
     }
 });
 

@@ -26,31 +26,27 @@ class PostService {
 
         posts.userId = data.userId;
 
+        posts.community = data.community;
+
         posts.title = data.title;
 
         if (data.optionaltext) {
             posts.optionaltext = data.optionaltext;
         }
         posts.postDateTime = new Date();
-        console.log('posts----------------', posts);
-        let saveData = posts.save()
-            .then((posts) => {
-                return posts;
-            })
-            .catch((err) => {
-                return 'error occured';
-            });
 
+        let saveData = posts.save()
+
+        return saveData;
     }
 
     static getAllPost() {
 
-        console.log('posts------------getallpost----');
         return Posts.find({})
             .exec()
             .then((posts) => {
 
-        console.log('posts----------------', posts);
+                console.log('posts----------------', posts);
                 return posts;
             })
             .catch((err) => {
