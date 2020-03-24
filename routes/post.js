@@ -20,7 +20,7 @@ router.post('/create-post', async (req, res, next) => {
         if (err.name === 'ValidationError') {
             return res.status(400).json({ error: err.message });
         }
-        return res.status(400).json({ error: err });
+        return res.status(400).json({ error: err.message });
         // unexpected error
         return next(err);
     }
