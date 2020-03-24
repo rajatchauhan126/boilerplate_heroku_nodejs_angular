@@ -1,4 +1,4 @@
-console.log('dburi------------1----------------------');
+
 var mongoose = require('mongoose');
 var gracefulShutdown;
 // var dbURI = 'mongodb://localhost/guch';
