@@ -37,7 +37,7 @@ class PostService {
             posts.postDateTime = new Date();
 
             let saveData = posts.save()
-
+            console.log('saveData--------------------------', saveData)
             resolve(saveData);
         })
     }
