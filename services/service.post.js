@@ -20,7 +20,7 @@ class PostService {
 
     static createPost(data) {
         if (!data.community || !data.title) {
-            throw new Error('Unable to retrieve a customer by ');
+            throw new Error('All fiels are required');
         }
         var posts = new Posts();
 
@@ -32,9 +32,9 @@ class PostService {
             posts.optionaltext = data.optionaltext;
         }
         posts.postDateTime = new Date();
-
+        console.log('posts----------------', posts);
         let saveData = posts.save();
-
+        console.log('savedata----------------', saveData);
         return saveData;
     }
 
