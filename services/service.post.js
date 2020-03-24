@@ -18,7 +18,31 @@ let passwordPattern = /([a-z])/;
 /* static customer service class */
 class PostService {
 
-    static createPost(data) {
+    static createPost = (data) => {
+        return new Promise((resolve, reject) => {
+            if (!data.community || !data.title) {
+                reject('All fiels are required');
+            }
+            var posts = new Posts();
+
+            posts.userId = data.userId;
+
+            posts.community = data.community;
+
+            posts.title = data.title;
+
+            if (data.optionaltext) {
+                posts.optionaltext = data.optionaltext;
+            }
+            posts.postDateTime = new Date();
+
+            let saveData = posts.save()
+
+            resolve(saveData);
+        })
+    }
+
+    static createPost2(data) {
         console.log('data----------', data)
         if (!data.community || !data.title) {
             throw new Error('All fiels are required');
