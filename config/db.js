@@ -4,10 +4,10 @@ var gracefulShutdown;
 
 var dbURI = `mongodb+srv://testuserrajat:testuserrajat%40123@cluster0-kefgc.mongodb.net/test?retryWrites=true&w=majority`;
 console.log(typeof(dbURI));
-if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGOLAB_URI;
-}
-console.log(typeof(dbURI));
+// if (process.env.NODE_ENV === 'production') {
+//   dbURI = process.env.MONGOLAB_URI;
+// }
+console.log('dburi------------------',typeof(dbURI));
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
 // CONNECTION EVENTS
