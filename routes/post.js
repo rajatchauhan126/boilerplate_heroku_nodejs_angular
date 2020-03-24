@@ -4,10 +4,11 @@ var PostService = require('../services/service.post');
 
 /* adds a new customer to the list */
 router.post('/create-post', async (req, res, next) => {
-    const body = req.body;
+    let body = req.body;
     console.log('data------1----', req.body);
     try {
-        console.log('data------2----', data);
+        console.log('data------2----');
+        console.log('data------2----', body);
         const post = await PostService.createPost(body);
         // if (body.guid != null) {
         //     customer.guid = body.guid;
