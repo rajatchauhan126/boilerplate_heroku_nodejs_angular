@@ -4,10 +4,9 @@ var gracefulShutdown;
 // var dbURI = 'mongodb://localhost/guch';
 
 var dbURI = `mongodb+srv://testuserrajat:testuserrajat%40123@cluster0-kefgc.mongodb.net/test?retryWrites=true&w=majority`;
-console.log(typeof(dbURI));
-// if (process.env.NODE_ENV === 'production') {
-//   dbURI = process.env.MONGOLAB_URI;
-// }
+if (process.env.NODE_ENV === 'production') {
+  dbURI = `mongodb+srv://testuserrajat:testuserrajat%40123@cluster0-kefgc.mongodb.net/test?retryWrites=true&w=majority`;
+}
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
 // CONNECTION EVENTS
