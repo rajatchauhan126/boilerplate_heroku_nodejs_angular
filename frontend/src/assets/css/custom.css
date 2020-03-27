@@ -1,0 +1,25 @@
+.button-anchor {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.heading {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+
+}
+
+.sub-heading {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-weight: 500; */
+}
+
+.heading-color {
+    color: #f57202;
+}
+
+.font-color {
+    color: rgb(37, 32, 32);
+}

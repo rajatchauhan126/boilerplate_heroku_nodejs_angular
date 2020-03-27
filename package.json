@@ -11,6 +11,9 @@
     "express": "~4.13.1",
     "fastest-validator": "^1.1.0",
     "mongoose": "^5.9.6",
-    "uid-safe": "^2.1.5"
+    "cors": "^2.8.5",
+    "uid-safe": "^2.1.5",
+    "fs": "0.0.1-security",
+    "walk": "^2.3.14"
   }
 }
