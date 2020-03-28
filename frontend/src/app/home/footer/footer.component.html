@@ -1,55 +1,33 @@
 <!-- Footer -->
 <footer class="footer bg-light">
     <div class="container">
+        <div class="row" style="height: 14px;">
+        </div>
         <div class="row">
-            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-                <ul class="list-inline mb-2">
-                    <li class="list-inline-item">
-                        <p>Contact</p>
-                        <p>You can email us data/content you want to share on our website on below email address </p>
-                        <a>fightac19@gmail.com</a>
-                    </li>
-                    <li class="list-inline-item">&sdot;</li>
-                    <li class="list-inline-item">
-                        <a [routerLink]="['/disclaimer']">Disclaimer</a>
-                    </li>
-                    <br>
-                    <li class="list-inline-item">
-                        <div *ngIf="local">
-                            Counter : {{local.count}}
-                        </div>
-                    </li>
 
-                    <!-- <li class="list-inline-item">
-                        <a href="#">About</a>
-                    </li>
-                    <li class="list-inline-item">&sdot;</li>
-
-                    <li class="list-inline-item">&sdot;</li>
-                    <li class="list-inline-item">
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                </ul>
-                <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
-            </div>
-            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item mr-3">
-                        <a href="#">
-                            <i class="fab fa-facebook fa-2x fa-fw"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item mr-3">
-                        <a href="#">
-                            <i class="fab fa-twitter-square fa-2x fa-fw"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-instagram fa-2x fa-fw"></i>
-                        </a>
-                    </li> -->
-                </ul>
+            <div class="col-sm-12" style="margin-top: 5px;">
+                <div class="card">
+                    <div class="card-header heading_1">
+                        Contact
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <p class="text-muted medium mb-4 mb-lg-0"> You can email us data/content you want to
+                                    share on our website on below email address. <strong>fightac19@gmail.com</strong>
+                                </p>
+                            </li>
+                            <li class="list-group-item"> <a class="text-muted medium mb-4 mb-lg-0"
+                                    [routerLink]="['/disclaimer']"><strong>Disclaimer</strong></a>
+                            </li>
+                            <li class="list-group-item">
+                                <div *ngIf="local" class="text-muted medium mb-4 mb-lg-0">
+                                    <strong> Visitor Count</strong> : {{local.count}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

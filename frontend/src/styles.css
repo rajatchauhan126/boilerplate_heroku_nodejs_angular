@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+.heading_1 {
+    color: #495057;
+    /* background-color: #fff; */
+    border-color: #dee2e6 #dee2e6 #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.heading_2 {
+    color: #495057;
+    /* background-color: #fff; */
+    border-color: #dee2e6 #dee2e6 #fff;
+    font-size: 18px;
+}
+
+.textAlignCenter {
+    text-align: center;
+}
