@@ -5,8 +5,23 @@ var sendJSONresponse = function (res, status, content) {
     res.status(status);
     res.json(content);
 };
+var multer = require('multer');
 
-module.exports.createPost = function (req, res) {
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log('file storage', file)
+        cb(null, 'uploads');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+
+var upload = multer({ storage: storage }).single('image')
+
+module.exports.createPost = (upload, (req, res, next) => {
+    console.log('req.file', req.file);
     if (!req.body.community || !req.body.title) {
         sendJSONresponse(res, 400, {
             "message": "All fields required"
@@ -18,7 +33,7 @@ module.exports.createPost = function (req, res) {
     posts.userId = req.body.userId;
 
     posts.title = req.body.title;
-
+    // posts.image = req.body.image;
     if (req.body.optionaltext) {
         posts.optionaltext = req.body.optionaltext;
     }
@@ -30,7 +45,7 @@ module.exports.createPost = function (req, res) {
             "message": 'Post created successfully'
         });
     });
-};
+});
 
 module.exports.getAllPost = function (req, res) {
     Posts

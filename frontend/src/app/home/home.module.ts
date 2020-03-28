@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ListofpostComponent } from './listofpost/listofpost.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, ListofpostComponent],
+  declarations: [HomeComponent, FooterComponent],
   imports: [
     FormsModule,
     CommonModule,

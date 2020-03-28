@@ -1,16 +1,42 @@
 <!-- Navigation -->
+<nav class="navbar navbar-dark bg-primary">
+    <!-- Navbar content -->
+    <a class="navbar-brand" [routerLink]="['/']">
+        <img style="height: 40px; width:117px;" src="assets/img/fightagainstcorona_logo.png" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trending games</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trending Activities</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/helpline']">Helpline</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            Navbar text with an inline element
+        </span>
+    </div>
+</nav>
+<!-- 
+
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
         <a class="navbar-brand" [routerLink]="['/']">
-            <img style="height: 33px; width:85px;" src="assets/img/guch.png">
+            <img style="height: 40px; width:117px;" src="assets/img/fightagainstcorona_logo.png">
         </a>
-        <a class="" [routerLink]="['/createpost']"></a>
-        <a class="" [routerLink]="['/createpost']"></a>
-        <a class="" [routerLink]="['/createpost']"></a>
-        <a class="" [routerLink]="['/createpost']"></a>
-        <a class="button-anchor heading-color" [routerLink]="['/createpost']">CREATE POST</a>
-        <a class="button-anchor heading-color" [routerLink]="['/viewpost']">VIEW POST</a>
-        <a class="button-anchor heading-color" [routerLink]="['/aboutus']">ABOUT US</a>
+
+        <a class="button-anchor heading-color" [routerLink]="['/helpline']">Helpline</a>
     </div>
 </nav>
-<div style="height: 4px; background-color: #f57202;"></div>
+<div style="height: 4px; background-color: #f57202;"></div> -->

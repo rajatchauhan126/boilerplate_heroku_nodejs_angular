@@ -3,12 +3,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-require('./config/db');
+// require('./config/db');
 
 var generate_uid = require('./routes/generate_uid');
-var customer = require('./routes/customer');
-var users = require('./routes/users');
-var post = require('./routes/post');
+// var customer = require('./routes/customer');
+// var users = require('./routes/users');
+// var post = require('./routes/post');
 
 var app = express();
 
@@ -26,9 +26,9 @@ app.use(express.static(__dirname + '/frontend/dist/angular-node-express'));
 
 app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 
-app.use('/api/v1/users', users);
-app.use('/api/v1/customer', customer);
+// app.use('/api/v1/users', users);
+// app.use('/api/v1/customer', customer);
 app.use('/api/v1/generate_uid', generate_uid);
-app.use('/api', post);
+// app.use('/api', post);
 
 module.exports = app;

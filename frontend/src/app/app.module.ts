@@ -9,7 +9,9 @@ import { InputUserDataFormComponent } from './input-user-data-form/input-user-da
 import { DisplayUserDataComponent } from './display-user-data/display-user-data.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { HelplineComponent } from './helpline/helpline.component';
+import { HelpindoorComponent } from './helpindoor/helpindoor.component';
+import { HelpoutdoorComponent } from './helpoutdoor/helpoutdoor.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,10 @@ const routes: Routes = [
   {
     path: 'user/:uid',
     component: DisplayUserDataComponent
+  },
+  {
+    path: 'helpline',
+    component: HelplineComponent
   },
   { path: 'createpost', loadChildren: () => import('./createpost/createpost.module').then(m => m.CreatepostModule) },
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
@@ -32,7 +38,9 @@ const routes: Routes = [
     DisplayUserDataComponent,
     NavComponent,
     HeaderComponent,
-    FooterComponent
+    HelplineComponent,
+    HelpindoorComponent,
+    HelpoutdoorComponent
   ],
   imports: [
     BrowserModule,
