@@ -7,10 +7,12 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { HelplineComponent } from './helpline/helpline.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: 'disclaimer', component: DisclaimerComponent }
+  { path: 'disclaimer', component: DisclaimerComponent },
+  { path: 'helpline', component: HelplineComponent }
 ];
 
 @NgModule({
@@ -18,6 +20,7 @@ const routes: Routes = [
     AppComponent,
     NavComponent,
     DisclaimerComponent,
+    HelplineComponent,
   ],
   imports: [
     BrowserModule,
