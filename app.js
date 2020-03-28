@@ -20,6 +20,6 @@ app.use(express.static(__dirname + '/frontend/dist/fightagainstcorona'));
 
 app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 
-app.use('/api/v1/generate_uid', generate_uid);
+app.use('/api', generate_uid);
 
 module.exports = app;

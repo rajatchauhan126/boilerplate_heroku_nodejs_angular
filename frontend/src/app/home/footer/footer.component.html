@@ -13,6 +13,13 @@
                     <li class="list-inline-item">
                         <a [routerLink]="['/disclaimer']">Disclaimer</a>
                     </li>
+                    <br>
+                    <li class="list-inline-item">
+                        <div *ngIf="local">
+                            Counter : {{local.count}}
+                        </div>
+                    </li>
+
                     <!-- <li class="list-inline-item">
                         <a href="#">About</a>
                     </li>

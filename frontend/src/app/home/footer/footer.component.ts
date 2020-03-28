@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CounterService } from '../../counter.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  local;
+
+  constructor(private counterService: CounterService) {
+
+  }
 
   ngOnInit() {
+    this.onSubmit()
+  }
+
+  onSubmit() {
+    var count = 1;
+    console.log('called');
+    count = count;
+    var counter = { count: count }
+    this.counterService.createPost(counter)
+      .subscribe(counter => this.local = counter);
+
   }
 
 }
+
