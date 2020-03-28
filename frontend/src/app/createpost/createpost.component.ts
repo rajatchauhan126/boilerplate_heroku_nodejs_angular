@@ -27,13 +27,15 @@ export class CreatepostComponent implements OnInit {
 
   onSubmit(postData) {
     postData.userId = 'Edgymnerch';
-    postData.image = 'temp';
     this.postService.createPost(postData)
       .subscribe(post => this.posts = post);
-    this.createPost.reset();
+    if (this.posts) {
+      this.createPost.reset();
 
-    let path = '/';
+      let path = '/';
 
-    this.router.navigate([path]);
+      this.router.navigate([path]);
+    }
+
   }
 }

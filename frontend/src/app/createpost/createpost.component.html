@@ -12,7 +12,7 @@
                         font-weight: 500;
                         line-height: 22px;
                          " class="card-title"><strong>Create a post</strong></h5>
-                        <form [formGroup]="createPost" (ngSubmit)="onSubmit(createPost.value)">
+                        <form [formGroup]="createPost" (ngSubmit)="onSubmit(createPost.value)" enctype="multipart/form-data">
                             <div class="form-group">
                                 <select class="form-control" id="community" formControlName="community">
                                     <option selected>Choose a community</option>
