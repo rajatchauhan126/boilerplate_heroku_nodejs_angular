@@ -18,3 +18,16 @@
 .textAlignCenter {
     text-align: center;
 }
+
+.badge_1 {
+    display: inline-block;
+    background-color: #ece8e8;
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 1.25rem !important;
+    /* padding: .25em .4em; */
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

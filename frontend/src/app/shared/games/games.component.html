@@ -8,10 +8,10 @@
                 <div class="card-body">
                     <ol class="list-group list-group-flush" *ngIf="games">
                         <li *ngFor="let game of games; index as i;" class="list-group-item">
-                            <a (click)="increaseCount(i)"
-                                class="text-muted medium mb-4 mb-lg-0" target="_blank"
-                                href="{{game.link}}">{{game.name}}</a><span style="float: right;"
-                                class="badge badge-primary badge-pill">{{game.count}}</span>
+                            <span style="padding-right:6px; color: #495057;">{{i + 1 }}.</span>
+                            <a (click)="increaseCount(i)" class="text-muted medium mb-4 mb-lg-0 badge_1" target="_blank"
+                                href="{{game.link}}">{{game.name}}</a><span style="float: right;margin-top: 3px;"
+                                class="medium badge badge-primary badge-pill">{{game.count}}</span>
                         </li>
                     </ol>
                 </div>
