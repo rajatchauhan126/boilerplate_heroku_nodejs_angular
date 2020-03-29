@@ -68,16 +68,14 @@
                     Game
                 </div>
                 <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a class="text-muted medium mb-4 mb-lg-0" target="_blank" href="https://quickdraw.withgoogle.com/">Want to
-                                draw</a></li>
-                        <li class="list-group-item"><a class="text-muted medium mb-4 mb-lg-0" target="_blank" href="https://playtictactoe.org/">Tic tac toe</a>
+                    <ol class="list-group list-group-flush" *ngIf="games">
+                        <li *ngFor="let game of games; index as i; trackBy: trackByFn" class="list-group-item">
+                            <a (click)="increaseCount(i)"
+                                class="text-muted medium mb-4 mb-lg-0" target="_blank"
+                                href="{{game.link}}">{{game.name}}</a><span style="float: right;"
+                                class="badge badge-primary badge-pill">{{game.count}}</span>
                         </li>
-                        <li class="list-group-item"><a class="text-muted medium mb-4 mb-lg-0" target="_blank" href="https://playsnake.org/">Snake Game </a>
-                        </li>
-                        <li class="list-group-item"><a class="text-muted medium mb-4 mb-lg-0" target="_blank" href="https://dmarie.com/timecap/">Your birthday
-                                special</a></li>
-                    </ul>
+                    </ol>
                 </div>
             </div>
         </div>

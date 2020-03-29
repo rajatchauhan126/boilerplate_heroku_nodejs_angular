@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="margin-top: 10px;">
+            <div class="card">
+                <div class="card-header heading_1">
+                    Game
+                </div>
+                <div class="card-body">
+                    <ol class="list-group list-group-flush" *ngIf="games">
+                        <li *ngFor="let game of games; index as i; trackBy: trackByFn" class="list-group-item">
+                            <a (click)="increaseCount(i)"
+                                class="text-muted medium mb-4 mb-lg-0" target="_blank"
+                                href="{{game.link}}">{{game.name}}</a><span style="float: right;"
+                                class="badge badge-primary badge-pill">{{game.count}}</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>

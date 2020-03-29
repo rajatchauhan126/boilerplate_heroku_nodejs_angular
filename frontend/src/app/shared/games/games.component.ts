@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CounterService } from '../counter.service';
+import { CounterService } from '../../counter.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-games',
+  templateUrl: './games.component.html',
+  styleUrls: ['./games.component.css']
 })
-export class HomeComponent implements OnInit {
+export class GamesComponent implements OnInit {
 
   games = [
     {

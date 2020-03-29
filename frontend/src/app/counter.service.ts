@@ -9,8 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class CounterService {
 
-  // private postUrl = `api`;
-  private postUrl = `http://localhost:3000/api`;
+  private postUrl = `api`;
+  // private postUrl = `http://localhost:3000/api`;
 
 
   httpOptions = {
@@ -27,6 +27,15 @@ export class CounterService {
       catchError(this.handleError<any>('errorpost'))
     );
   }
+
+  gamesData(gamesData: any): Observable<any> {
+    let url = this.postUrl + '/games';
+    return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
+      tap((newpost: any) => console.log(`new games count`)),
+      catchError(this.handleError<any>('errorpost'))
+    );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
