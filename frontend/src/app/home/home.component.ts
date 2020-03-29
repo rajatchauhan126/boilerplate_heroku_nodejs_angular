@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   onLoad() {
     var localStorageData = localStorage.getItem("games");
-    if (localStorageData) {
+    if (localStorageData !== null ) {
       this.games = JSON.parse(localStorageData)
     } else {
       this.games = this.games

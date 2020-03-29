@@ -44,7 +44,7 @@ export class GamesComponent implements OnInit {
 
   onLoad() {
     var localStorageData = localStorage.getItem("games");
-    if (localStorageData) {
+    if (localStorageData !== "undefined") {
       this.games = JSON.parse(localStorageData)
     } else {
       this.games = this.games
