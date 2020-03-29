@@ -3,6 +3,7 @@ var uid = require('uid-safe');
 
 var router = express.Router();
 var userCount = 0;
+var games;
 /* GET a guid. */
 router.post('/counter', function (req, res, next) {
     // var strUid = uid.sync(18);
