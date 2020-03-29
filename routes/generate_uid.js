@@ -16,4 +16,11 @@ router.post('/counter', function (req, res, next) {
     res.json({ count: userCount });
 });
 
+router.post('/games', function (req, res, next) {
+
+    games = req.body;
+
+    res.json({ games: games });
+});
+
 module.exports = router;
