@@ -8,8 +8,8 @@ router.post('/counter', function (req, res, next) {
     // var strUid = uid.sync(18);
 
     if (req.body.count > userCount) {
-        // userCount = req.body.count + 1;
-        userCount = userCount + 1;
+        userCount = req.body.count + 1;
+        // userCount = userCount + 1;
     } else {
         userCount = userCount + 1;
     }
