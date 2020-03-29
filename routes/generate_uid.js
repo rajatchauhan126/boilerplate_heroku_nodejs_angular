@@ -18,9 +18,14 @@ router.post('/counter', function (req, res, next) {
 });
 
 router.post('/games', function (req, res, next) {
-
-    games = req.body;
-
+    for (let i = 0; i < req.body.length; i++) {
+        if (req.body[i].count > games[i].count) {
+             games =  req.body;
+        }
+        else {
+            games = games;
+        }
+    }
     res.json({ games: games });
 });
 

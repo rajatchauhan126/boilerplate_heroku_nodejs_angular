@@ -21,7 +21,6 @@ export class CounterService {
 
   createPost(postData: any): Observable<any> {
     let url = this.postUrl + '/counter';
-    console.log('url', url)
     return this.http.post<any>(url, postData, this.httpOptions).pipe(
       tap((newpost: any) => console.log(`new post`)),
       catchError(this.handleError<any>('errorpost'))
@@ -31,7 +30,7 @@ export class CounterService {
   gamesData(gamesData: any): Observable<any> {
     let url = this.postUrl + '/games';
     return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`new games count`)),
+      tap((newpost: any) => console.log(`new games`)),
       catchError(this.handleError<any>('errorpost'))
     );
   }
