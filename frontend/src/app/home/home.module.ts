@@ -4,14 +4,14 @@ import { HomeComponent } from './home.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-
+import { BarchartComponent } from './barchart/barchart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }
 ];
 
 @NgModule({
-  declarations: [HomeComponent, FooterComponent],
+  declarations: [HomeComponent, FooterComponent, BarchartComponent],
   imports: [
     FormsModule,
     CommonModule,

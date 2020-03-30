@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedComponent } from './shared.component';
 import { GamesComponent } from './games/games.component';
-import { BarchartComponent } from './barchart/barchart.component';
 
 
 const routes: Routes = [
@@ -12,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [SharedComponent, GamesComponent, BarchartComponent],
+  declarations: [SharedComponent, GamesComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
