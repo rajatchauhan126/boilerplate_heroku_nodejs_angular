@@ -8,7 +8,18 @@ import { CounterService } from '../counter.service';
 })
 export class HomeComponent implements OnInit {
 
-  covid = {};
+  covid = {
+    last_updated: '',
+    bangalore_total_cases: '',
+    bangalore_total_recoverd: '',
+    bangalore_total_death: '',
+    india_total_cases: '',
+    india_total_recoverd: '',
+    india_total_death: '',
+    world_total_cases: '',
+    world_total_recoverd: '',
+    world_total_death: ''
+  };
   games = [
     {
       "name": "Want to draw",

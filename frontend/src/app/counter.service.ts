@@ -9,8 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class CounterService {
 
-  private postUrl = `api`;
-  // private postUrl = `http://localhost:3000/api`;
+  // private postUrl = `api`;
+  private postUrl = `http://localhost:3000/api`;
 
 
   httpOptions = {

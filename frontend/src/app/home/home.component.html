@@ -7,7 +7,7 @@
                 <div class="card-header textAlignCenter">
                     COVID-19 CORONAVIRUS PANDEMIC
                 </div>
-                <div class="card-body textAlignCenter text-muted medium mb-4 mb-lg-0">
+                <div *ngIf="covid" class="card-body textAlignCenter text-muted medium mb-4 mb-lg-0">
                     Last updated: {{covid.last_updated}}
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     </ul>
 
                     <!-- Tab panes -->
-                    <div class="tab-content">
+                    <div *ngIf="covid" class="tab-content">
                         <div id="bangalore" class="container tab-pane active text-muted medium mb-4 mb-lg-0"><br>
                             <h3 class="heading_2">COVID-19 cases in Bangalore</h3>
                             <p>Total cases : {{covid.bangalore_total_cases}}</p>
