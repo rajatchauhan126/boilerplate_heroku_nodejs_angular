@@ -12,6 +12,7 @@ export class DisclaimerComponent implements OnInit {
 
   ngOnInit() {
   }
+
   backClicked() {
     this._location.back();
   }

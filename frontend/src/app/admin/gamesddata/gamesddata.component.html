@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row" style="height: 14px;">
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="
+                    color: rgb(59, 47, 47);
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 22px;
+                     " class="card-title"><strong>Add games</strong></h5>
+                    <button style="float: right; margin-bottom: 10px;" class="btn btn-primary" (click)="backClicked()">Go back</button>
+                    <form [formGroup]="createGames" (ngSubmit)="postGamesData(createGames.value)">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" formControlName="name" placeholder="name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="link" formControlName="link" placeholder="link">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="count" formControlName="count"
+                                placeholder="count">
+                        </div>
+                        <button style="float:right; min-width: 100px;" type="submit" class="btn btn-primary btn-sm">
+                            Post Covid data </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

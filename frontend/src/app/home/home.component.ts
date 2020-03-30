@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
     world_total_recoverd: '',
     world_total_death: ''
   };
+
   games = [
     {
-      "name": "Want to draw",
+      "name": "ffsdfsddddddddddddd",
       "link": "https://quickdraw.withgoogle.com/",
       "count": 10
     },
@@ -47,44 +48,17 @@ export class HomeComponent implements OnInit {
   constructor(private counterService: CounterService) { }
 
   ngOnInit() {
-    this.onLoad();
     this.getCovidData();
+    this.getGamesData();
   }
 
-  increaseCount(data) {
-    this.games[data].count = this.games[data].count + 1;
-    this.onSubmit();
-  }
-
-  onLoad() {
-    var localStorageData = localStorage.getItem("games");
-    if (localStorageData !== null) {
-      this.games = JSON.parse(localStorageData)
-    } else {
-      this.games = this.games
-    }
-
-    this.counterService.gamesData(this.games)
+  getGamesData() {
+    this.counterService.getgamesData({})
       .subscribe(
         gamesData => {
           this.games = gamesData.games;
-          this.setCounter(this.games)
         }
       );
-  }
-
-  onSubmit() {
-    this.counterService.gamesData(this.games)
-      .subscribe(
-        gamesData => {
-          this.games = gamesData.games;
-          this.setCounter(this.games)
-        }
-      );
-  }
-
-  setCounter(data) {
-    localStorage.setItem("games", JSON.stringify(data));
   }
 
   getCovidData() {
@@ -96,4 +70,17 @@ export class HomeComponent implements OnInit {
       );
   }
 
+  updateCount() {
+    this.counterService.postgamesCountData(this.games)
+      .subscribe(
+        gamesData => {
+          this.games = gamesData.games;
+        }
+      );
+  }
+
+  increaseCount(data) {
+    this.games[data].count = this.games[data].count + 1;
+    this.updateCount();
+  }
 }

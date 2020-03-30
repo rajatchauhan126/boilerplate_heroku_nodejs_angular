@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Location } from '@angular/common';
 import { CounterService } from '../../counter.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class CoviddataComponent implements OnInit {
   posts;
   createPost;
 
-  constructor(private formBuilder: FormBuilder, private counterService: CounterService) {
+  constructor(private formBuilder: FormBuilder, private counterService: CounterService, private _location: Location) {
     this.createPost = this.formBuilder.group({
       last_updated: 'March 29, 2020, 07:35 PM',
       bangalore_total_cases: '',
@@ -34,7 +35,6 @@ export class CoviddataComponent implements OnInit {
     this.counterService.setCovidData(postData)
       .subscribe(post => {
         this.posts = post;
-        this.setCovidData(post);
       });
 
 
@@ -43,7 +43,7 @@ export class CoviddataComponent implements OnInit {
     console.warn('Your order has been submitted', postData);
   }
 
-  setCovidData(data) {
-    // localStorage.setItem("covid", JSON.stringify(data.covid));
+  backClicked() {
+    this._location.back();
   }
 }

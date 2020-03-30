@@ -9,8 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class CounterService {
 
-  // private postUrl = `api`;
-  private postUrl = `http://localhost:3000/api`;
+  private postUrl = `api`;
+  // private postUrl = `http://localhost:3000/api`;
 
 
   httpOptions = {
@@ -27,18 +27,35 @@ export class CounterService {
     );
   }
 
-  gamesData(gamesData: any): Observable<any> {
-    let url = this.postUrl + '/games';
+  setgamesData(gamesData: any): Observable<any> {
+    let url = this.postUrl + '/post-games';
     return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`new games`)),
+      tap((newpost: any) => console.log(`post new games`)),
       catchError(this.handleError<any>('errorpost'))
     );
   }
 
+  getgamesData(gamesData: any): Observable<any> {
+    let url = this.postUrl + '/get-games';
+    return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
+      tap((newpost: any) => console.log(`get games data`)),
+      catchError(this.handleError<any>('errorpost'))
+    );
+  }
+
+  postgamesCountData(gamesData: any): Observable<any> {
+    let url = this.postUrl + '/post-games-count';
+    return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
+      tap((newpost: any) => console.log(`increase count`)),
+      catchError(this.handleError<any>('errorpost'))
+    );
+  }
+
+
   setCovidData(covidData: any): Observable<any> {
-    let url = this.postUrl + '/admin/covid';
+    let url = this.postUrl + '/admin/post-covid';
     return this.http.post<any>(url, covidData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`new covid data`)),
+      tap((newpost: any) => console.log(`post covid data`)),
       catchError(this.handleError<any>('errorpost'))
     );
   }

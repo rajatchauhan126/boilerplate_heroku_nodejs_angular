@@ -34,41 +34,29 @@ export class GamesComponent implements OnInit {
   constructor(private counterService: CounterService) { }
 
   ngOnInit() {
-    this.onLoad();
+    this.getGamesData();
+  }
+
+  getGamesData() {
+    this.counterService.getgamesData({})
+      .subscribe(
+        gamesData => {
+          this.games = gamesData.games.games;
+        }
+      );
+  }
+  updateCount() {
+    this.counterService.postgamesCountData(this.games)
+      .subscribe(
+        gamesData => {
+          this.games = gamesData.games;
+        }
+      );
   }
 
   increaseCount(data) {
     this.games[data].count = this.games[data].count + 1;
-    this.onSubmit();
+    this.updateCount();
   }
 
-  onLoad() {
-    var localStorageData = localStorage.getItem("games");
-    if (localStorageData !== null) {
-      this.games = JSON.parse(localStorageData)
-    } else {
-      this.games = this.games
-    }
-
-    this.counterService.gamesData(this.games)
-      .subscribe(
-        gamesData => {
-          this.games = gamesData.games;
-          this.setCounter(this.games)
-        }
-      );
-  }
-
-  onSubmit() {
-    this.counterService.gamesData(this.games)
-      .subscribe(
-        gamesData => {
-          this.games = gamesData.games;
-          this.setCounter(this.games)
-        }
-      );
-  }
-  setCounter(data) {
-    localStorage.setItem("games", JSON.stringify(data));
-  }
 }

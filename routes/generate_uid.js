@@ -1,10 +1,11 @@
 var express = require('express');
 var uid = require('uid-safe');
+const fs = require('fs');
 
 var router = express.Router();
 var userCount = 0;
-var games;
-var covidData;
+let gamesData = {};
+let covidData = {};
 /* GET a guid. */
 router.post('/counter', function (req, res, next) {
     // var strUid = uid.sync(18);
@@ -18,36 +19,80 @@ router.post('/counter', function (req, res, next) {
     res.json({ count: userCount });
 });
 
-router.post('/games', function (req, res, next) {
-    if (games) {
-        for (let i = 0; i < req.body.length; i++) {
-            if (req.body[i].count > games[i].count) {
-                games = req.body;
-                console.log('games 3', i);
+router.post('/post-games', function (req, res, next) {
+    let newdata = req.body;
+    let readData;
+    fs.readFile('games.json', (err, data) => {
+        if (err) {
+            console.log('err', err);
+            return;
+        };
+        readData = JSON.parse(data);
+        readData.push(newdata);
+
+        fs.writeFile('games.json', JSON.stringify(readData), (err) => {
+            if (err) {
+                console.log('err', err);
+                return;
             }
-        }
-    } else {
-        games = req.body;
-    }
-    res.json({ games: games });
+            console.log('Data written to file');
+        });
+    });
+    res.json({ code: 200, status: "Data written to file success" });
 });
 
-router.post('/admin/covid', function (req, res, next) {
-    covidData = req.body;
-    // if (games) {
-    //     for (let i = 0; i < req.body.length; i++) {
-    //         if (req.body[i].count > games[i].count) {
-    //             games = req.body;
-    //             console.log('games 3', i);
-    //         }
-    //     }
-    // } else {
-    //     games = req.body;
-    // }
-    res.json({ covid: covidData });
+
+router.post('/post-games-count', function (req, res, next) {
+    fs.writeFile('games.json', JSON.stringify(req.body), (err) => {
+        if (err) {
+            console.log('err', err);
+            return;
+        }
+        console.log('Data written to file');
+    });
+    res.json({ code: 200, games: req.body, status: "Count updated successfully" });
+});
+
+
+
+router.post('/get-games', function (req, res, next) {
+
+    fs.readFile('games.json', (err, data) => {
+        if (err) {
+            console.log('err', err);
+            return;
+        };
+        gamesData = JSON.parse(data);
+    });
+
+    res.json({ games: gamesData });
+});
+
+router.post('/admin/post-covid', function (req, res, next) {
+
+    let data = JSON.stringify(req.body, null, 2);
+
+    fs.writeFile('covid.json', data, (err) => {
+        if (err) {
+            console.log('err', err);
+            return;
+        }
+        console.log('Data written to file');
+    });
+
+    res.json({ code: 200, status: "Data written to file success" });
 });
 
 router.post('/admin/get-covid', function (req, res, next) {
+
+    fs.readFile('covid.json', (err, data) => {
+        if (err) {
+            console.log('err', err);
+            return;
+        };
+        covidData = JSON.parse(data);
+    });
+
     res.json({ covid: covidData });
 });
 

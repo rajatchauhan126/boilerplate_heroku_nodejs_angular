@@ -11,6 +11,7 @@
                     font-weight: 500;
                     line-height: 22px;
                      " class="card-title"><strong>Change Covid data</strong></h5>
+                    <button style="float: right; margin-bottom: 10px;" class="btn btn-primary" (click)="backClicked()">Go back</button>
                     <form [formGroup]="createPost" (ngSubmit)="onSubmit(createPost.value)">
                         <div class="form-group">
                             <input type="text" class="form-control" id="last_updated" formControlName="last_updated"
