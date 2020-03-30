@@ -15,15 +15,15 @@ export class CoviddataComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private counterService: CounterService) {
     this.createPost = this.formBuilder.group({
       last_updated: 'March 29, 2020, 07:35 PM',
-      bangalore_total_cases: '1',
-      bangalore_total_recoverd: '1',
-      bangalore_total_death: '1',
-      india_total_cases: '1',
-      india_total_recoverd: '1',
-      india_total_death: '1',
-      world_total_cases: '1',
-      world_total_recoverd: '1',
-      world_total_death: '1'
+      bangalore_total_cases: '',
+      bangalore_total_recoverd: '',
+      bangalore_total_death: '',
+      india_total_cases: '',
+      india_total_recoverd: '',
+      india_total_death: '',
+      world_total_cases: '',
+      world_total_recoverd: '',
+      world_total_death: ''
     });
   }
 
