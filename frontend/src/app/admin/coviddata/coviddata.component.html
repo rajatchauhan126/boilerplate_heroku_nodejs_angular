@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row" style="height: 14px;">
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="
+                    color: rgb(59, 47, 47);
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 22px;
+                     " class="card-title"><strong>Change Covid data</strong></h5>
+                    <form [formGroup]="createPost" (ngSubmit)="onSubmit(createPost.value)">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="last_updated" formControlName="last_updated"
+                                placeholder="last_updated">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="bangalore_total_cases"
+                                formControlName="bangalore_total_cases" placeholder="bangalore_total_cases">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="bangalore_total_recoverd"
+                                formControlName="bangalore_total_recoverd" placeholder="bangalore_total_recoverd">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="bangalore_total_death"
+                                formControlName="bangalore_total_death" placeholder="bangalore_total_death">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="india_total_cases"
+                                formControlName="india_total_cases" placeholder="india_total_cases">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="india_total_recoverd"
+                                formControlName="india_total_recoverd" placeholder="india_total_recoverd">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="india_total_death"
+                                formControlName="india_total_death" placeholder="india_total_death">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="world_total_cases"
+                                formControlName="world_total_cases" placeholder="world_total_cases">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="world_total_recoverd"
+                                formControlName="world_total_recoverd" placeholder="world_total_recoverd">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="world_total_death"
+                                formControlName="world_total_death" placeholder="world_total_death">
+                        </div>
+                        <button style="float:right; min-width: 100px;" type="submit" class="btn btn-primary btn-sm">
+                            Post Covid data </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

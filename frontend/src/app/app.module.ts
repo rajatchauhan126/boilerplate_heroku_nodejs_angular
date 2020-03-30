@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'disclaimer', component: DisclaimerComponent },
   { path: 'helpline', component: HelplineComponent },
-  { path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) }
+  { path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({

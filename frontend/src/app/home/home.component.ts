@@ -8,6 +8,7 @@ import { CounterService } from '../counter.service';
 })
 export class HomeComponent implements OnInit {
 
+  covid = {};
   games = [
     {
       "name": "Want to draw",
@@ -31,10 +32,12 @@ export class HomeComponent implements OnInit {
     }
   ]
 
+
   constructor(private counterService: CounterService) { }
 
   ngOnInit() {
     this.onLoad();
+    this.getCovidData();
   }
 
   increaseCount(data) {
@@ -44,7 +47,7 @@ export class HomeComponent implements OnInit {
 
   onLoad() {
     var localStorageData = localStorage.getItem("games");
-    if (localStorageData !== null ) {
+    if (localStorageData !== null) {
       this.games = JSON.parse(localStorageData)
     } else {
       this.games = this.games
@@ -68,7 +71,18 @@ export class HomeComponent implements OnInit {
         }
       );
   }
+
   setCounter(data) {
     localStorage.setItem("games", JSON.stringify(data));
   }
+
+  getCovidData() {
+    this.counterService.getCovidData({})
+      .subscribe(
+        covidData => {
+          this.covid = covidData.covid;
+        }
+      );
+  }
+
 }

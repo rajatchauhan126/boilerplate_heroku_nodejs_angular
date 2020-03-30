@@ -35,6 +35,21 @@ export class CounterService {
     );
   }
 
+  setCovidData(covidData: any): Observable<any> {
+    let url = this.postUrl + '/admin/covid';
+    return this.http.post<any>(url, covidData, this.httpOptions).pipe(
+      tap((newpost: any) => console.log(`new covid data`)),
+      catchError(this.handleError<any>('errorpost'))
+    );
+  }
+
+  getCovidData(covidData: any): Observable<any> {
+    let url = this.postUrl + '/admin/get-covid';
+    return this.http.post<any>(url, covidData, this.httpOptions).pipe(
+      tap((newpost: any) => console.log(`get covid data`)),
+      catchError(this.handleError<any>('errorpost'))
+    );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
