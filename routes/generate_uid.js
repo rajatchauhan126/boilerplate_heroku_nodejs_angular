@@ -22,18 +22,12 @@ router.post('/games', function (req, res, next) {
         for (let i = 0; i < req.body.length; i++) {
             if (req.body[i].count > games[i].count) {
                 games = req.body;
-                res.json({ games: games });
-                return;
-            } else {
-                games = games
-                res.json({ games: games });
-                return;
+                console.log('games 3', i);
             }
         }
     } else {
         games = req.body;
     }
-console.log('res', games);
     res.json({ games: games });
 });
 
