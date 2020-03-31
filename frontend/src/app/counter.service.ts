@@ -9,8 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class CounterService {
 
-  private postUrl = `api`;
-  // private postUrl = `http://localhost:3000/api`;
+  // private postUrl = `api`;
+  private postUrl = `http://localhost:3000/api`;
 
 
   httpOptions = {
@@ -22,7 +22,7 @@ export class CounterService {
   createPost(postData: any): Observable<any> {
     let url = this.postUrl + '/counter';
     return this.http.post<any>(url, postData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`new post`)),
+      tap((newpost: any) => { }),
       catchError(this.handleError<any>('errorpost'))
     );
   }
@@ -30,7 +30,7 @@ export class CounterService {
   setgamesData(gamesData: any): Observable<any> {
     let url = this.postUrl + '/post-games';
     return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`post new games`)),
+      tap((newpost: any) => { }),
       catchError(this.handleError<any>('errorpost'))
     );
   }
@@ -38,7 +38,7 @@ export class CounterService {
   getgamesData(gamesData: any): Observable<any> {
     let url = this.postUrl + '/get-games';
     return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`get games data`)),
+      tap((newpost: any) => { }),
       catchError(this.handleError<any>('errorpost'))
     );
   }
@@ -46,7 +46,7 @@ export class CounterService {
   postgamesCountData(gamesData: any): Observable<any> {
     let url = this.postUrl + '/post-games-count';
     return this.http.post<any>(url, gamesData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`increase count`)),
+      tap((newpost: any) => { }),
       catchError(this.handleError<any>('errorpost'))
     );
   }
@@ -55,7 +55,7 @@ export class CounterService {
   setCovidData(covidData: any): Observable<any> {
     let url = this.postUrl + '/admin/post-covid';
     return this.http.post<any>(url, covidData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`post covid data`)),
+      tap((newpost: any) => { }),
       catchError(this.handleError<any>('errorpost'))
     );
   }
@@ -63,7 +63,7 @@ export class CounterService {
   getCovidData(covidData: any): Observable<any> {
     let url = this.postUrl + '/admin/get-covid';
     return this.http.post<any>(url, covidData, this.httpOptions).pipe(
-      tap((newpost: any) => console.log(`get covid data`)),
+      tap((newpost: any) => { }),
       catchError(this.handleError<any>('errorpost'))
     );
   }

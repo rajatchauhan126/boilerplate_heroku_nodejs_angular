@@ -1,12 +1,12 @@
 {
   "last_updated": "March 29, 2020, 07:35 PM",
-  "bangalore_total_cases": "6",
-  "bangalore_total_recoverd": "6",
-  "bangalore_total_death": "6",
-  "india_total_cases": "6",
-  "india_total_recoverd": "6",
-  "india_total_death": "6",
-  "world_total_cases": "6",
-  "world_total_recoverd": "6",
-  "world_total_death": "6"
+  "bangalore_total_cases": "88",
+  "bangalore_total_recoverd": "8",
+  "bangalore_total_death": "8",
+  "india_total_cases": "8",
+  "india_total_recoverd": "8",
+  "india_total_death": "8",
+  "world_total_cases": "8",
+  "world_total_recoverd": "8",
+  "world_total_death": "8"
 }

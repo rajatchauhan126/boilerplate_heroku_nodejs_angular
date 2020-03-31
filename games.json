@@ -17,16 +17,16 @@
     {
         "name": "Your birthday special",
         "link": "https://dmarie.com/timecap/",
-        "count": 7
+        "count": 8
     },
     {
         "name": "Sudoku",
         "link": "https://www.websudoku.com/",
-        "count": "1"
+        "count": 4
     },
     {
         "name": "Slither",
-        "link": "http://poki.com/en/g/slither-io",
-        "count": "1"
+        "link": "http://poki.com/en/g/slither-io/",
+        "count": 2
     }
 ]

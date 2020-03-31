@@ -9,54 +9,45 @@ import { CounterService } from '../counter.service';
 export class HomeComponent implements OnInit {
 
   covid = {
-    last_updated: '',
-    bangalore_total_cases: '',
-    bangalore_total_recoverd: '',
-    bangalore_total_death: '',
-    india_total_cases: '',
-    india_total_recoverd: '',
-    india_total_death: '',
-    world_total_cases: '',
-    world_total_recoverd: '',
-    world_total_death: ''
-  };
+    "last_updated": "",
+    "bangalore_total_cases": "",
+    "bangalore_total_recoverd": "",
+    "bangalore_total_death": "",
+    "india_total_cases": "",
+    "india_total_recoverd": "",
+    "india_total_death": "",
+    "world_total_cases": "",
+    "world_total_recoverd": "",
+    "world_total_death": ""
+  }
 
-  games = [
-    {
-      "name": "ffsdfsddddddddddddd",
-      "link": "https://quickdraw.withgoogle.com/",
-      "count": 10
-    },
-    {
-      "name": "Tic tac toe",
-      "link": "https://playtictactoe.org/",
-      "count": 5
-    },
-    {
-      "name": "Snake Game",
-      "link": "https://playsnake.org/",
-      "count": 3
-    },
-    {
-      "name": "Your birthday special",
-      "link": "https://dmarie.com/timecap/",
-      "count": 7
-    }
-  ]
-
+  games;
 
   constructor(private counterService: CounterService) { }
 
   ngOnInit() {
     this.getCovidData();
     this.getGamesData();
+    this.callAfterTimeout();
   }
+
+  callAfterTimeout() {
+    setTimeout(() => {
+      this.getCovidData();
+      this.getGamesData();
+    }, 1000);
+  }
+
 
   getGamesData() {
     this.counterService.getgamesData({})
       .subscribe(
         gamesData => {
-          this.games = gamesData.games;
+          if (Object.keys(gamesData.games).length === 0) {
+            this.games = [];
+          } else {
+            this.games = gamesData.games;
+          }
         }
       );
   }

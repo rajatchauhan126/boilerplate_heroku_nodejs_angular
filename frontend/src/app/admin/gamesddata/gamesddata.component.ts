@@ -26,15 +26,16 @@ export class GamesddataComponent implements OnInit {
   }
 
   postGamesData(postData) {
+    let countData = postData.count;
+    postData.count = parseInt(countData);
     this.counterService.setgamesData(postData)
       .subscribe(games => {
         this.games = games;
       });
-    console.warn('Your order has been submitted', postData);
   }
 
   backClicked() {
     this._location.back();
   }
-  
+
 }

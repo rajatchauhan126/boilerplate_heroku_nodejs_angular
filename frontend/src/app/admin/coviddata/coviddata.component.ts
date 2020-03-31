@@ -36,11 +36,6 @@ export class CoviddataComponent implements OnInit {
       .subscribe(post => {
         this.posts = post;
       });
-
-
-    // this.createPost.reset();
-
-    console.warn('Your order has been submitted', postData);
   }
 
   backClicked() {
