@@ -37,7 +37,16 @@ export class PostComponent implements OnInit {
           if (Object.keys(posts).length === 0) {
             this.posts = [];
           } else {
-            this.posts = posts
+            let temp4 = [];
+            if (posts.length > 2) {
+              temp4.push(posts[posts.length - 3])
+            }
+            if (posts.length > 1) {
+              temp4.push(posts[posts.length - 2])
+            }
+            temp4.push(posts[posts.length - 1])
+
+            this.posts = temp4
           }
         }
       )

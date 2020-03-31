@@ -15,7 +15,7 @@ export class CoviddataComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private counterService: CounterService, private _location: Location) {
     this.createPost = this.formBuilder.group({
-      last_updated: 'March 29, 2020, 07:35 PM',
+      last_updated: new Date,
       bangalore_total_cases: '',
       bangalore_total_recoverd: '',
       bangalore_total_death: '',
@@ -27,11 +27,12 @@ export class CoviddataComponent implements OnInit {
       world_total_death: ''
     });
   }
-
+  // 'March 29, 2020, 07:35 PM'
   ngOnInit() {
   }
 
   onSubmit(postData) {
+    
     this.counterService.setCovidData(postData)
       .subscribe(post => {
         this.posts = post;

@@ -5,16 +5,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedComponent } from './shared.component';
 import { GamesComponent } from './games/games.component';
 import { CreatepostComponent } from './createpost/createpost.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 const routes: Routes = [
   { path: '', component: SharedComponent },
   { path: 'games', component: GamesComponent },
-  { path: 'create-post', component: CreatepostComponent }
+  { path: 'create-post', component: CreatepostComponent },
+  { path: 'posts', component: PostsComponent }
 ];
 
 @NgModule({
-  declarations: [SharedComponent, GamesComponent, CreatepostComponent],
+  declarations: [SharedComponent, GamesComponent, CreatepostComponent, PostsComponent],
   imports: [
     CommonModule,
     FormsModule,

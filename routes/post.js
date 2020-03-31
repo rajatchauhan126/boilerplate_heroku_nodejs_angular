@@ -31,7 +31,7 @@ router.get('/get-all-post', async (req, res, next) => {
     try {
         const posts = await PostService.retrieve();
 
-        return res.json({ posts: posts });
+        return res.json(posts);
     }
     catch (err) {
         // unexpected error

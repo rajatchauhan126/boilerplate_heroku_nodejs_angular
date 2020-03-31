@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row" style="height: 14px;">
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="form-group" style="margin-bottom: 0.5rem; margin-top: 0.5rem;">
+                    <a class="btn btn-primary btn-sm" style="float: left; min-width: 100px; margin-left: .5rem;"
+                        [routerLink]="['/shared/create-post']">Create new post</a>
+                </div>
+            </div>
+            <div *ngIf="posts">
+                <div *ngFor="let post of posts.reverse(); let i=index;" >
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <div class="tab-content">
+                                <div class="container tab-pane active text-muted medium mb-4 mb-lg-0"><br>
+                                    <strong style="float: left;">{{post.title}}</strong><br>
+                                    <!-- <span>*</span> <span>Posted by: </span><span>{{post.userId}}</span> -->
+                                    <p style="text-align: left;"> {{post.optionaltext}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div *ngIf="posts">
+    <div *ngFor="let post of posts.reverse(); let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
+        <div class="card">
+            <div class="form-group" style="margin-bottom: 0.5rem; margin-top: 0.5rem;                         color: rgb(59, 47, 47);
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 22px;
+                text-align: left;
+                padding-left: .5rem;">
+                <strong>{{post.title}}</strong>
+                <span>*</span> <span>Posted by: </span><span>{{post.userId}}</span>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem; margin-top: 0.5rem;                         color: rgb(59, 47, 47);
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 22px;
+                text-align: left;
+                padding-left: .5rem;">
+                {{post.optionaltext}}
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem; margin-top: 0.5rem;">
+                <div class="text-white showcase-img"
+                    style="height: 400px; width: auto; background-image: url('assets/img/bg-showcase-1.jpg');">
+                </div>
+
+
+                <a class="btn btn-primary btn-sm"
+                        style="float: left; min-width: 100px; margin-left: .5rem;">{{post._id}}</a>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.5rem; margin-top: 0.5rem;">
+                <a class="btn btn-primary" data-toggle="collapse" href="{{'#' + post._id}}" role="button"
+                    aria-expanded="false" aria-controls="collapseExample"
+                    style="float: left; min-width: 100px; margin-left: .5rem;">257 comments</a>
+                <a class="" style="float: left; min-width: 100px; margin-left: .5rem;">share</a>
+                <a class="" style="float: left; min-width: 100px; margin-left: .5rem;">{{post._id}}</a>
+            </div>
+            <div class="form-group">
+                <form [formGroup]="createComment">
+                    <div class="collapse" id="{{post._id}}">
+                        <input type="title" style="" value="{{post._id}}" class="form-control"
+                            id="{{post._id}}" formControlName="postId">
+                        <div class="card card-body">
+                            <div class="form-group">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { PostService } from '../../post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createpost',
@@ -12,7 +13,7 @@ export class CreatepostComponent implements OnInit {
   posts;
   createPost;
 
-  constructor(private formBuilder: FormBuilder, private postService: PostService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private postService: PostService) {
     this.createPost = this.formBuilder.group({
       community: '',
       title: '',
@@ -30,7 +31,6 @@ export class CreatepostComponent implements OnInit {
     this.postService.createPost(postData)
       .subscribe(post => this.posts = post);
     this.createPost.reset();
-
-    console.warn('Your order has been submitted', postData);
+    this.router.navigateByUrl('shared/posts');
   }
 }
