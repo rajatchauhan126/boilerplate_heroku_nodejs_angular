@@ -4,6 +4,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var generate_uid = require('./routes/generate_uid');
+
+var generate_uid = require('./routes/post');
+
 var app = express();
 
 app.use(function (req, res, next) {
@@ -21,5 +24,6 @@ app.use(express.static(__dirname + '/frontend/dist/fightagainstcorona'));
 app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
 
 app.use('/api', generate_uid);
+app.use('/api/post', post);
 
 module.exports = app;
