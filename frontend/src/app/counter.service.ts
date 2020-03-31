@@ -3,15 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { url } from './config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CounterService {
-
-  // private postUrl = `api`;
-  private postUrl = `http://localhost:3000/api`;
-
+ 
+  private postUrl =`http://localhost:3000/api`;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

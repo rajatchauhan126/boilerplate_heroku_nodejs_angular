@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var generate_uid = require('./routes/generate_uid');
 
-var generate_uid = require('./routes/post');
+var post = require('./routes/post');
 
 var app = express();
 
