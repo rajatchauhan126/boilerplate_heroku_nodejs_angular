@@ -34,7 +34,7 @@ export class PostComponent implements OnInit {
     this.postService.getAllPost()
       .subscribe(
         posts => {
-          if (Object.keys(posts).length === 0) {
+          if (posts === null) {
             this.posts = [];
           } else {
             let temp4 = [];
