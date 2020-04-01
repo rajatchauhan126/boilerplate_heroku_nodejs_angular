@@ -10,8 +10,8 @@ import { url } from './config';
 })
 export class CounterService {
  
-  private postUrl =`http://localhost:3000/api`;
-  // private postUrl =`api`;
+  // private postUrl =`http://localhost:3000/api`;
+  private postUrl =`api`;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
