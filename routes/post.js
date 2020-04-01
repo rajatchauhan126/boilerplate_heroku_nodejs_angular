@@ -1,6 +1,38 @@
 var express = require('express');
 var router = express.Router();
+const multer = require('multer');
 var PostService = require('../services/service.post');
+
+const DIR = './uploads';
+
+let storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + '.' + path.extname(file.originalname));
+    }
+});
+
+let upload = multer({ storage: storage });
+
+router.post('/upload', upload.single('photo'), function (req, res) {
+    if (!req.file) {
+        console.log("No file received");
+        return res.send({
+            success: false
+        });
+
+    } else {
+        console.log('file received');
+        return res.send({
+            success: true
+        })
+    }
+});
+
+
+
 
 /* GET customer listing. */
 router.get('/', async function (req, res, next) {
@@ -14,7 +46,7 @@ router.post('/create-post', async (req, res, next) => {
     try {
         const customer = await PostService.create(body);
 
-        return res.status(201).json({ "code": "200","status": "Post created successfully" });
+        return res.status(201).json({ "code": "200", "status": "Post created successfully" });
     }
     catch (err) {
         if (err.name === 'ValidationError') {

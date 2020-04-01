@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FileUploadModule } from 'ng2-file-upload';
 import { SharedComponent } from './shared.component';
 import { GamesComponent } from './games/games.component';
 import { CreatepostComponent } from './createpost/createpost.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    FileUploadModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],

@@ -33,6 +33,21 @@
                             <textarea class="form-control" id="optionaltext" formControlName="optionaltext"
                                 placeholder="Text (Optional)" rows="3"></textarea>
                         </div>
+                        <div class="form-group">
+                            <span class="hidden-file">
+                                <input type="file" #fileInput ng2FileSelect [uploader]="uploader"
+                                    (onFileSelected)="onFileSelected($event)" />
+                            </span>
+                            <div class="btn-group" (click)="fileInput.click()">
+                                <button type="button" class="btn btn-primary btn-group-icon btn-group-divider">
+                                    <i class="ion-plus-round"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    Add Documents
+                                </button>
+                            </div>
+                        </div>
+
                         <!-- <div class="form-group">
                             <input type="file" class="form-control-file btn btn-primary btn-sm" formControlName="image"
                                 id="image">
