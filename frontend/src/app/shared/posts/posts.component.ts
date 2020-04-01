@@ -22,12 +22,19 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.getAllPost();
     this.callAfterTimeout();
+    this.callAfterTimeout2();
   }
 
   callAfterTimeout() {
     setTimeout(() => {
-      // this.getAllPost();
-    }, 0);
+      this.getAllPost();
+    }, 300);
+  }
+  callAfterTimeout2() {
+    setTimeout(() => {
+      this.getAllPost();
+      this.getAllPost();
+    }, 500);
   }
 
   getAllPost() {
