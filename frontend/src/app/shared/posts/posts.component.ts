@@ -27,7 +27,7 @@ export class PostsComponent implements OnInit {
   callAfterTimeout() {
     setTimeout(() => {
       // this.getAllPost();
-    }, 1000);
+    }, 0);
   }
 
   getAllPost() {
