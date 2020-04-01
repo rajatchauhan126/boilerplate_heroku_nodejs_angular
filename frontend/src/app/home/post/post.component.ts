@@ -38,15 +38,10 @@ export class PostComponent implements OnInit {
             this.posts = [];
           } else {
             let temp4 = [];
-            if (posts.length > 2) {
-              temp4.push(posts[posts.length - 3])
-            }
-            if (posts.length > 1) {
-              temp4.push(posts[posts.length - 2])
-            }
-            temp4.push(posts[posts.length - 1])
-
-            this.posts = temp4
+              temp4.push(posts[posts.length - 3]);
+              temp4.push(posts[posts.length - 2]);
+              temp4.push(posts[posts.length - 1]);
+              this.posts = temp4;            
           }
         }
       )
