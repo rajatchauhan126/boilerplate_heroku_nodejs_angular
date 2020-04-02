@@ -1,11 +1,11 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FileUploader, FileLikeObject } from 'ng2-file-upload';
+import { FileUploader, FileSelectDirective } from 'ng2-file-upload';
 import { PostService } from '../../post.service';
 
-const URL = 'http://localhost:3000/api/upload';
-
+const URL = `http://localhost:3000/api/post/upload`;
+// const URL = 'http://localhost:3000/api/post/create-post';
 @Component({
   selector: 'app-createpost',
   templateUrl: './createpost.component.html',
@@ -15,26 +15,28 @@ export class CreatepostComponent implements OnInit {
 
   posts;
   createPost;
+  selectedFile: File = null;
+  attachmentList: any = [];
 
-
-  public uploader: FileUploader = new FileUploader({
+  uploader: FileUploader = new FileUploader({
     url: URL,
-    disableMultipart: false,
-    autoUpload: true,
-    method: 'post',
-    itemAlias: 'attachment',
-    allowedFileType: ['image', 'pdf']
 
-
+    // disableMultipart: false,
+    // autoUpload: true,
+    // method: 'post',
+    // itemAlias: 'attachment',
+    // allowedFileType: ['image', 'pdf']
   });
 
-  public onFileSelected(event: EventEmitter<File[]>) {
-    const file: File = event[0];
-    console.log(file);
 
-  }
 
   constructor(private router: Router, private formBuilder: FormBuilder, private postService: PostService) {
+ 
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, header: any ) => {
+      this.attachmentList.push(JSON.parse(response))
+    }
+ 
+ 
     this.createPost = this.formBuilder.group({
       community: '',
       title: '',
@@ -47,20 +49,25 @@ export class CreatepostComponent implements OnInit {
   }
 
   onSubmit(postData) {
+    // this.onUpload();
     postData.userId = 'Edgymnerch';
     postData.image = 'temp';
-    // this.fileUploader();
     this.postService.createPost(postData)
       .subscribe(post => this.posts = post);
-    this.createPost.reset();
-    this.router.navigateByUrl('shared/posts');
+    // this.createPost.reset();
+    // this.router.navigateByUrl('shared/posts');
   }
 
-  // fileUploader() {
-  //   this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-  //   this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-  //     console.log('ImageUpload:uploaded:', item, status, response);
-  //     alert('File uploaded successfully');
-  //   };
+  // public onFileSelected(event) {
+  //   this.selectedFile = <File>event.target.files[0];
+ 
   // }
+
+  onUpload() {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.postService.upload(fd).
+      subscribe()
+  }
+
 }

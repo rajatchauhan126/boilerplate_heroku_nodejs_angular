@@ -10,7 +10,7 @@ import { url } from './config';
 })
 export class PostService {
 
-  private postUrl =`http://localhost:3000/api`;
+  private postUrl = `http://localhost:3000/api`;
   // private postUrl =`api`;
 
   httpOptions = {
@@ -34,6 +34,14 @@ export class PostService {
         tap(_ => console.log('fetched post')),
         catchError(this.handleError<any[]>('posts', []))
       );
+  }
+
+  upload(fd): Observable<any[]> {
+    return this.http.post<any[]>('gs://test-62ab9.appspot.com', fd)
+      .pipe(
+        tap(_ => console.log('uploaded')),
+        catchError(this.handleError<any[]>('posts', []))
+      )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

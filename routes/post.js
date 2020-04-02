@@ -10,25 +10,22 @@ let storage = multer.diskStorage({
         cb(null, DIR);
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now() + '.' + path.extname(file.originalname));
+        // cb(null, file.fieldname + '-' + Date.now() + '.' + path.extname(file.originalname));
+        cb(null, Date.now() + '.' + file.originalname);
+
     }
 });
 
-let upload = multer({ storage: storage });
+let upload = multer({ storage: storage }).single('file');
 
-router.post('/upload', upload.single('photo'), function (req, res) {
-    if (!req.file) {
-        console.log("No file received");
-        return res.send({
-            success: false
-        });
-
-    } else {
-        console.log('file received');
-        return res.send({
-            success: true
-        })
-    }
+router.post('/upload', function (req, res) {
+    console.log('req.file', req)
+    upload(req, res, function (err) {
+        if (err) {
+            return res.status(501).json({ error: err })
+        }
+        res.json({ originalname: req.file.originalname, uploadname: req.file.filename })
+    })
 });
 
 

@@ -5,7 +5,7 @@
         <div class="col-sm-2">
 
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-2">
             <div class="card">
                 <div class="card-body">
                     <h5 style="
@@ -33,8 +33,10 @@
                             <textarea class="form-control" id="optionaltext" formControlName="optionaltext"
                                 placeholder="Text (Optional)" rows="3"></textarea>
                         </div>
-                        <div class="form-group">
-                            <span class="hidden-file">
+                        <!-- <div class="form-group" id="fileSelector"> -->
+                        <!-- <input type="file" name = "fileUpload" id="fileUpload"> -->
+                        <!-- <input type="file" (change)="onFileSelected($event)" /> -->
+                        <!-- <span class="hidden-file">
                                 <input type="file" #fileInput ng2FileSelect [uploader]="uploader"
                                     (onFileSelected)="onFileSelected($event)" />
                             </span>
@@ -45,8 +47,8 @@
                                 <button type="button" class="btn btn-primary">
                                     Add Documents
                                 </button>
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div> -->
 
                         <!-- <div class="form-group">
                             <input type="file" class="form-control-file btn btn-primary btn-sm" formControlName="image"
@@ -58,7 +60,44 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-8">
+            <h4>Upload section</h4>
+            <div id="fileSelector">
+                <input type="file" id="fileUplaod" name="fileUpload" multiple ng2FileSelect [uploader]="uploader">
+            </div>
+            <div class="row uploadList" *ngFor="let item of uploader.queue">
+                <div class="col-sm-4"> {{item.file.name}}</div>
+                <div class="col-sm-4">
+                    <div class="progress">
+                        <div class="progress-bar bg-success" [ngStyle]="{width: item.progress + '%'}"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-dark" (click)="item.upload()">Upload</button>
+                    <button class="button" class="btn btn-danger" (click)="item.remove()">Cancel</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4" *ngIf="uploader?.queue?.length > 0">
+                    <button type="button" class="btn btn-primary" (click)="uploader.uploadAll()">Upload all</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4>Download Section</h4>
+                <div class="col-sm-4">
+                    <div class="row" *ngFor="let item of attachmentList">
+                        {{item.originalName}}
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+            </div>
+
             <!-- <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
